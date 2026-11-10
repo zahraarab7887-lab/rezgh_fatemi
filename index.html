@@ -1,51 +1,277 @@
-.quote {
-  font-family: 'Noto Naskh Arabic', 'Vazirmatn', serif;
-  font-size: clamp(24px, 3.2vw, 35px);
-  line-height: 2.1;
-  color: var(--cream);
-  font-weight: 600;
-  opacity: 0;
-  animation: quoteIn 2s 1s forwards;
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b22">
+<title>رزق فاطمی | قرار صلوات</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --dark: #102b22;
+  --deep: #0a1e18;
+  --green: #234b39;
+  --gold: #c9ab72;
+  --cream: #f3ead6;
+  --soft: #c8c1ac;
 }
 
-.quote-author {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--deep);
+  color: var(--cream);
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 55px 7%;
+  background:
+    radial-gradient(ellipse at 78% 45%, rgba(66,108,77,.25), transparent 48%),
+    radial-gradient(ellipse at 10% 10%, rgba(194,161,95,.08), transparent 40%),
+    linear-gradient(135deg, #0a1e18, #173b2d 55%, #0c241c);
+}
+
+.frame {
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(201,171,114,.38);
+  pointer-events: none;
+}
+
+.frame:before,
+.frame:after {
+  content: "✦";
+  position: absolute;
+  color: var(--gold);
+  font-size: 17px;
+  background: var(--dark);
+  padding: 5px 12px;
+}
+
+.frame:before {
+  top: -15px;
+  right: 45px;
+}
+
+.frame:after {
+  bottom: -15px;
+  left: 45px;
+}
+
+.decoration {
+  position: absolute;
+  color: rgba(201,171,114,.07);
+  font-size: 300px;
+  left: -60px;
+  bottom: -100px;
+  transform: rotate(-20deg);
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 45px;
+  animation: appear 1.3s ease both;
+}
+
+.header-small {
   color: var(--gold);
   font-size: 12px;
-  margin-top: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 13px;
+}
+
+.header-line {
+  width: 100px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto;
+  opacity: .65;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr .85fr;
+  align-items: center;
+  gap: 75px;
+}
+
+.text-area {
+  text-align: center;
+  animation: rise 1.2s .2s both;
+}
+
+.star {
+  color: var(--gold);
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.title {
+  color: var(--cream);
+  font-size: clamp(48px, 7vw, 76px);
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1.5;
+}
+
+.title-rule {
+  width: 115px;
+  height: 1px;
+  background: var(--gold);
+  margin: 12px auto 18px;
+  position: relative;
+}
+
+.title-rule:after {
+  content: "✧";
+  position: absolute;
+  top: -11px;
+  right: 50%;
+  transform: translateX(50%);
+  color: var(--gold);
+  background: #173b2d;
+  padding: 0 9px;
+}
+
+.subtitle {
+  color: var(--soft);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2.4;
+  margin-bottom: 38px;
+}
+
+.quote-area {
+  margin: 0 auto 36px;
+  max-width: 530px;
+  padding: 22px 10px;
+  position: relative;
+}
+
+.quote-symbol {
+  color: var(--gold);
+  font-size: 35px;
+  line-height: 1;
+}
+
+.quote {
+  font-family: 'Noto Naskh Arabic', 'Vazirmatn', serif;
+  font-size: clamp(25px, 3.4vw, 37px);
+  line-height: 2.05;
+  font-weight: 600;
+  color: var(--cream);
+  animation: quote 2s ease both;
+  animation-delay: .7s;
+}
+
+.author {
+  color: var(--gold);
+  font-size: 13px;
+  margin-top: 13px;
   letter-spacing: 1px;
 }
 
-.enter {
+.button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 13px;
-  padding: 15px 32px;
+  gap: 15px;
+  padding: 15px 30px;
   border: 1px solid var(--gold);
   color: var(--cream);
+  background: rgba(201,171,114,.08);
   text-decoration: none;
   font-size: 14px;
-  background: rgba(198,167,106,.07);
-  transition: .35s;
+  transition: all .35s ease;
 }
 
-.enter:hover {
+.button:hover {
+  color: var(--deep);
   background: var(--gold);
-  color: var(--green);
-  box-shadow: 0 0 30px rgba(198,167,106,.2);
-  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(201,171,114,.2);
+  transform: translateY(-4px);
 }
 
-.enter span {
-  font-size: 19px;
+.button .arrow {
+  font-size: 20px;
 }
 
-.bottom-note {
+.image-area {
+  display: flex;
+  justify-content: center;
+  animation: rise 1.4s ease both;
+}
+
+.image-frame {
+  width: min(100%, 390px);
+  height: 535px;
+  padding: 9px;
+  border: 1px solid var(--gold);
+  position: relative;
+  background: rgba(255,255,255,.025);
+  box-shadow: 0 25px 70px rgba(0,0,0,.25);
+}
+  .image-frame:before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(201,171,114,.3);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.image-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% center;
+}
+
+.image-caption {
+  position: absolute;
+  z-index: 3;
+  bottom: -16px;
+  right: 50%;
+  transform: translateX(50%);
+  background: var(--dark);
+  border: 1px solid var(--gold);
+  padding: 7px 25px;
+  color: var(--gold);
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.footer {
+  margin-top: 55px;
   text-align: center;
-  color: rgba(243,234,213,.42);
+  color: rgba(243,234,214,.45);
   font-size: 11px;
-  margin-top: 65px;
-  letter-spacing: .5px;
+}
+
+@keyframes appear {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 @keyframes rise {
@@ -53,115 +279,140 @@
   to {opacity: 1; transform: translateY(0);}
 }
 
-@keyframes fade {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes quoteIn {
-  from {opacity: 0; transform: translateY(12px);}
+@keyframes quote {
+  from {opacity: 0; transform: translateY(14px);}
   to {opacity: 1; transform: translateY(0);}
 }
 
 @media(max-width: 760px) {
-  .hero {
+  .page {
     padding: 45px 28px;
   }
 
-  .hero::before {
-    inset: 10px;
-  }
-
-  .top-label {
-    margin-bottom: 35px;
-  }
-
-  .content {
+  .main {
     grid-template-columns: 1fr;
     gap: 42px;
   }
 
-  .text-side {
+  .text-area {
     order: 1;
   }
 
-  .photo-side {
+  .image-area {
     order: 2;
   }
 
-  .photo-frame {
-    height: 420px;
+  .image-frame {
     max-width: 300px;
+    height: 420px;
   }
 
-  .brand {
-    font-size: 53px;
+  .header {
+    margin-bottom: 35px;
+  }
+
+  .title {
+    font-size: 55px;
   }
 
   .subtitle {
-    margin-bottom: 25px;
+    margin-bottom: 28px;
   }
 
-  .bottom-note {
-    margin-top: 48px;
+  .footer {
+    margin-top: 45px;
+  }
+}
+
+@media(max-width: 380px) {
+  .page {
+    padding: 35px 20px;
+  }
+
+  .title {
+    font-size: 47px;
+  }
+
+  .image-frame {
+    height: 370px;
   }
 }
 </style>
 </head>
 
 <body>
-<main class="hero">
-  <div class="glow"></div>
+
+<main class="page">
+
+  <div class="frame"></div>
+  <div class="decoration">✧</div>
 
   <div class="container">
-    <div class="top-label">
-      به نیت ارادت
-      <span>✦</span>
-      به یاد ایام فاطمیه
-    </div>
 
-    <section class="content">
+    <header class="header">
+      <div class="header-small">
+        به نیت ارادت و محبت
+      </div>
+      <div class="header-line"></div>
+    </header>
 
-      <div class="text-side">
-        <div class="symbol">۞</div>
+    <section class="main">
 
-        <h1 class="brand">رزق فاطمی</h1>
+      <div class="text-area">
 
-        <div class="brand-line"></div>
+        <div class="star">۞</div>
+
+        <h1 class="title">رزق فاطمی</h1>
+
+        <div class="title-rule"></div>
 
         <p class="subtitle">
-          قرار جمعی ۵۳۰ صلوات<br>
+          ختم جمعی ۵۳۰ صلوات<br>
           به مناسبت ایام فاطمیه
         </p>
 
-        <div class="quote-box">
+        <div class="quote-area">
+          <div class="quote-symbol">❝</div>
+
           <p class="quote">
             من رزق یک سال کشور را<br>
             در شب‌های فاطمیه می‌گیرم.
           </p>
-          <div class="quote-author">رهبر شهید</div>
+
+          <div class="author">رهبر شهید</div>
         </div>
 
-        <a class="enter" href="salavat.html">
+        <a class="button" href="salavat.html">
           <span>✧</span>
           ورود به قرار صلوات
-          <span>←</span>
+          <span class="arrow">←</span>
         </a>
+
       </div>
 
-      <div class="photo-side">
-        <div class="photo-frame">
-          <img src="rahbar.jpg" alt="تصویر رهبر شهید">
-          <div class="photo-caption">یاد و نامش جاودان</div>
+      <div class="image-area">
+        <div class="image-frame">
+
+          <img
+            src="rahbar.jpg"
+            alt="تصویر رهبر شهید"
+          >
+
+          <div class="image-caption">
+            یاد و نامش جاودان
+          </div>
+
         </div>
       </div>
 
     </section>
 
-    <div class="bottom-note">
+    <footer class="footer">
       هر صلوات، سهمی از یک قرار عاشقانه
-    </div>
+    </footer>
+
   </div>
 </main>
+
 </body>
 </html>
