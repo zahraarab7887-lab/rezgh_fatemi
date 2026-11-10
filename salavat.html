@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102d25">
+  <title>صلوات‌شمار | رزق فاطمی</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #102d25;
+      --green-light: #1b4437;
+      --green-soft: #285646;
+      --cream: #f4eddf;
+      --cream-dark: #e7dbc4;
+      --gold: #c6a66b;
+      --gold-light: #e4cc98;
+      --text: #f5eddd;
+      --muted: #c4b99f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--green);
+      color: var(--text);
+      font-family: "Vazirmatn", sans-serif;
+      line-height: 1.9;
+      overflow-x: hidden;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 18%, rgba(198,166,107,.10), transparent 36%),
+        linear-gradient(180deg, #102d25 0%, #16382d 48%, #102b24 100%);
+    }
+
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(198,166,107,.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .page::before {
+      top: 170px;
+      right: -190px;
+    }
+
+    .page::after {
+      top: 520px;
+      left: -205px;
+    }
+
+    .container {
+      width: min(100% - 36px, 760px);
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .top {
+      text-align: center;
+      padding: 34px 0 12px;
+    }
+
+    .bismillah {
+      color: var(--gold-light);
+      font-family: "Amiri", serif;
+      font-size: 22px;
+      letter-spacing: .3px;
+    }
+
+    .brand {
+      margin-top: 12px;
+      color: var(--cream);
+      font-family: "Amiri", serif;
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .brand-subtitle {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .2px;
+    }
+
+    .top-line {
+      width: 90px;
+      height: 1px;
+      margin: 23px auto 0;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .intro {
+      text-align: center;
+      padding: 34px 0 10px;
+    }
+
+    .eyebrow {
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: .5px;
+      margin-bottom: 8px;
+    }
+
+    .intro h1 {
+      color: var(--cream);
+      font-family: "Amiri", serif;
+      font-size: clamp(25px, 6vw, 34px);
+      font-weight: 700;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 7px;
+    }
+
+    .counter-section {
+      padding: 25px 0 15px;
+      text-align: center;
+    }
+
+    .ring-wrap {
+      width: min(78vw, 310px);
+      aspect-ratio: 1;
+      margin: 0 auto;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .ring {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        conic-gradient(
+          from -90deg,
+          var(--gold) var(--progress, 0%),
+          rgba(244,237,223,.12) var(--progress, 0%)
+        );
+      box-shadow:
+        0 0 35px rgba(198,166,107,.10),
+        0 0 80px rgba(0,0,0,.15);
+      transition: background 1s ease;
+      position: relative;
+    }
+
+    .ring::before {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 1px solid rgba(198,166,107,.45);
+    }
+    .ring::after {
+      content: "";
+      position: absolute;
+      inset: 17px;
+      border-radius: 50%;
+      border: 1px solid rgba(198,166,107,.13);
+    }
+
+    .ring-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .ring-label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .total-number {
+      color: var(--cream);
+      font-size: clamp(38px, 10vw, 54px);
+      font-weight: 700;
+      line-height: 1.4;
+      direction: ltr;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ring-unit {
+      color: var(--gold-light);
+      font-size: 13px;
+    }
+
+    .ring-progress {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .salawat {
+      font-family: "Amiri", serif;
+      color: var(--cream);
+      font-size: clamp(23px, 5.8vw, 31px);
+      line-height: 2;
+      margin: 25px auto 20px;
+      text-align: center;
+    }
+
+    .salawat-button {
+      display: block;
+      width: min(100%, 330px);
+      min-height: 64px;
+      margin: 0 auto;
+      border: 1px solid var(--gold);
+      border-radius: 18px;
+      background: linear-gradient(135deg, #f2e6ce, #d9c397);
+      color: #17372c;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,0,0,.17);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .salawat-button:active {
+      transform: scale(.97);
+      box-shadow: 0 3px 12px rgba(0,0,0,.2);
+    }
+
+    .salawat-button:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .button-caption {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 10px;
+    }
+
+    .connection-message {
+      color: var(--gold-light);
+      font-size: 11px;
+      text-align: center;
+      margin: 12px auto 0;
+      min-height: 22px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 34px auto 0;
+    }
+
+    .stat-card {
+      border: 1px solid rgba(198,166,107,.25);
+      background: rgba(255,255,255,.035);
+      border-radius: 17px;
+      padding: 17px 8px;
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      color: var(--gold-light);
+      font-size: 25px;
+      font-weight: 700;
+      direction: ltr;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .explanation {
+      margin: 38px auto 50px;
+      padding: 24px 22px;
+      border: 1px solid rgba(198,166,107,.24);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+      text-align: center;
+    }
+
+    .explanation h2 {
+      color: var(--gold-light);
+      font-family: "Amiri", serif;
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .explanation p {
+      color: #e2d8c6;
+      font-size: 13px;
+      line-height: 2.3;
+    }
+
+    .explanation strong {
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .memory {
+      position: relative;
+      padding: 42px 0 48px;
+      background:
+        linear-gradient(180deg, rgba(9,27,22,0), rgba(7,22,18,.72) 12%, #0b211b 100%);
+    }
+
+    .memory-heading {
+      text-align: center;
+      margin-bottom: 23px;
+    }
+
+    .memory-heading span {
+      display: block;
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .memory-heading h2 {
+      font-family: "Amiri", serif;
+      color: var(--cream);
+      font-size: 29px;
+    }
+
+    .memory-frame {
+      max-width: 440px;
+      margin: auto;
+      padding: 9px;
+      border: 1px solid rgba(198,166,107,.65);
+      border-radius: 5px;
+      position: relative;
+      background: rgba(255,255,255,.025);
+      box-shadow: 0 15px 50px rgba(0,0,0,.28);
+    }
+    .memory-frame::before,
+    .memory-frame::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-color: var(--gold-light);
+      border-style: solid;
+      opacity: .8;
+    }
+
+    .memory-frame::before {
+      top: -5px;
+      right: -5px;
+      border-width: 1px 1px 0 0;
+    }
+
+    .memory-frame::after {
+      bottom: -5px;
+      left: -5px;
+      border-width: 0 0 1px 1px;
+    }
+
+    .martyr-photo {
+      display: block;
+      width: 100%;
+      max-height: 490px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      background: #18372d;
+    }
+
+    .martyr-name {
+      color: var(--gold-light);
+      text-align: center;
+      font-family: "Amiri", serif;
+      font-size: 26px;
+      margin-top: 22px;
+    }
+
+    .memory-text {
+      max-width: 570px;
+      margin: 12px auto 0;
+      padding: 0 15px;
+      color: #e5dccb;
+      font-size: 13px;
+      line-height: 2.5;
+      text-align: center;
+    }
+
+    .memory-closing {
+      text-align: center;
+      color: var(--gold-light);
+      font-family: "Amiri", serif;
+      font-size: 20px;
+      margin-top: 22px;
+    }
+
+    .footer {
+      padding: 24px 0 30px;
+      text-align: center;
+      border-top: 1px solid rgba(198,166,107,.14);
+      color: #9d9b89;
+      font-size: 10px;
+    }
+
+    .footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: min(100% - 26px, 760px);
+      }
+
+      .top {
+        padding-top: 25px;
+      }
+
+      .explanation {
+        padding: 20px 16px;
+      }
+
+      .stats {
+        gap: 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="top container">
+      <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <div class="brand">رزق فاطمی</div>
+      <div class="brand-subtitle">ختم جمعی ۵۳۰ صلوات به مناسبت ایام فاطمیه</div>
+      <div class="top-line"></div>
+    </header>
+
+    <section class="intro container">
+      <div class="eyebrow">همراهی در یک ذکر جمعی</div>
+      <h1>سهم من از این قرار عاشقانه</h1>
+      <p>یک صلوات از من، یک قدم در همراهی با دیگران</p>
+    </section>
+
+    <section class="counter-section container">
+
+      <div class="ring-wrap">
+        <div class="ring" id="progressRing">
+          <div class="ring-content">
+            <div class="ring-label">مجموع صلوات‌های ارسالی</div>
+            <div class="total-number" id="totalCount">۰</div>
+            <div class="ring-unit">صلوات</div>
+            <div class="ring-progress" id="progressText">۰ از ۵۳۰</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="salawat">
+        اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَآلِ مُحَمَّدٍ
+      </div>
+
+      <button class="salawat-button" id="salawatButton" disabled>
+        صلوات فرستادم
+      </button>
+
+      <div class="button-caption">
+        با هر بار لمس، یک صلوات به شمار جمعی افزوده می‌شود.
+      </div>
+
+      <div class="connection-message" id="connectionMessage">
+        در حال اتصال به شمارنده...
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-number" id="khatmCount">۰</span>
+          <span class="stat-label">ختم کامل‌شده</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-number" id="nextCount">۰ از ۵۳۰</span>
+          <span class="stat-label">پیشرفت ختم بعدی</span>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="explanation container">
+      <h2>هر ۵۳۰ صلوات، یک ختم</h2>
+      <p>
+        در این همراهی جمعی، هر <strong>۵۳۰ صلوات</strong> یک ختم کامل به شمار می‌آید.
+        با رسیدن شمار صلوات‌ها به این عدد، یک ختم به ختم‌های انجام‌شده اضافه می‌شود
+        و مسیر ختم بعدی آغاز خواهد شد.
+        این همراهی ادامه دارد؛ هر ختم، آغاز یک ختم دیگر است.
+      </p>
+    </section>
+
+    <section class="memory">
+      <div class="container">
+
+        <div class="memory-heading">
+          <span>یاد و نامی که زنده می‌ماند</span>
+          <h2>صلواتی به یاد شهید فدایی</h2>
+        </div>
+        <div class="memory-frame">
+          <img
+            class="martyr-photo"
+            src="shahid-fadaei.jpg"
+            alt="تصویر شهید فدایی"
+            onerror="this.style.display='none'; document.getElementById('photoError').style.display='block';"
+          >
+          <div id="photoError" style="display:none; text-align:center; padding:35px 10px; color:#e4cc98;">
+            تصویر شهید بارگذاری نشد. نام فایل و مسیر عکس را بررسی کنید.
+          </div>
+        </div>
+
+        <div class="martyr-name">شهید فدایی</div>
+
+        <p class="memory-text">
+          بعضی نام‌ها نباید از یادها بروند؛ حتی اگر صاحبانشان دیگر در میان ما نباشند.
+          <br>
+          می‌خواهیم در این همراهی جمعی، صلوات‌هایمان را به یاد شهید فدایی تقدیم کنیم؛
+          هر صلوات، نشانی از ارادت ما و هر ختم، فرصتی برای زنده نگه‌داشتن یاد اوست.
+          <br>
+          باشد که این ذکرها، هدیه‌ای از دل‌های ما برای شادی روح شهید باشد
+          و نام و یادش در گذر روزها فراموش نشود.
+        </p>
+
+        <div class="memory-closing">
+          با هر صلوات، یادش را زنده نگه می‌داریم.
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="index.html">بازگشت به صفحهٔ رزق فاطمی</a>
+      <div style="margin-top:8px;">به نیت محبت، به رسم همراهی</div>
+    </footer>
+
+  </main>
+
+  <!-- تنظیمات اتصال به پایگاه داده -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    // پس از ساخت پروژه Supabase، این دو مقدار را جایگزین کنید.
+    const SUPABASE_URL = "YOUR_SUPABASE_URL";
+    const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+
+    const totalElement = document.getElementById("totalCount");
+    const khatmElement = document.getElementById("khatmCount");
+    const nextElement = document.getElementById("nextCount");
+    const progressText = document.getElementById("progressText");
+    const progressRing = document.getElementById("progressRing");
+    const button = document.getElementById("salawatButton");
+    const message = document.getElementById("connectionMessage");
+
+    const numberFormat = new Intl.NumberFormat("fa-IR");
+
+    let supabase = null;
+    let lastClick = 0;
+    let busy = false;
+
+    function renderCount(total) {
+      const khatms = Math.floor(total / 530);
+      const progress = total % 530;
+      const percentage = (progress / 530) * 100;
+
+      totalElement.textContent = numberFormat.format(total);
+      khatmElement.textContent = numberFormat.format(khatms);
+      nextElement.textContent =
+        numberFormat.format(progress) + " از " + numberFormat.format(530);
+
+      progressText.textContent =
+        numberFormat.format(progress) + " از " + numberFormat.format(530);
+
+      progressRing.style.setProperty("--progress", percentage + "%");
+    }
+
+    async function loadCount() {
+      const { data, error } = await supabase
+        .from("salawat_counter")
+        .select("total")
+        .eq("id", 1)
+        .single();
+
+      if (error) {
+        message.textContent = "دریافت شمارنده با مشکل روبه‌رو شد.";
+        return;
+      }
+
+      renderCount(Number(data.total));
+      message.textContent = "شمارندهٔ جمعی فعال است.";
+      button.disabled = false;
+    }
+
+    async function addSalawat() {
+      if (busy) return;
+
+      const now = Date.now();
+
+      // جلوگیری از ثبت ناخواسته چند لمس پیاپی
+      if (now - lastClick < 900) return;
+
+      lastClick = now;
+      busy = true;
+      button.disabled = true;
+
+      const originalText = button.textContent;
+      button.textContent = "در حال ثبت...";
+
+      const { data, error } = await supabase.rpc("add_salawat");
+
+      if (error) {
+        message.textContent = "ثبت صلوات انجام نشد؛ دوباره تلاش کنید.";
+      } else {
+        renderCount(Number(data));
+        message.textContent = "صلوات شما با موفقیت ثبت شد.";
+      }
+
+      button.textContent = originalText;
+      button.disabled = false;
+      busy = false;
+    }
+
+    async function init() {
+      const configured =
+        SUPABASE_URL.startsWith("https://") &&
+        !SUPABASE_URL.includes("YOUR_") &&
+        !SUPABASE_ANON_KEY.includes("YOUR_");
+      if (!configured || !window.supabase) {
+        message.textContent =
+          "برای فعال شدن شمارندهٔ مشترک، اتصال پایگاه داده باید تنظیم شود.";
+        button.disabled = true;
+        return;
+      }
+
+      supabase = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+      );
+
+      await loadCount();
+
+      // به‌روزرسانی شمارنده برای مشاهدهٔ تغییرات سایر کاربران
+      setInterval(loadCount, 15000);
+    }
+
+    button.addEventListener("click", addSalawat);
+
+    init();
+  </script>
+
+</body>
+</html>
