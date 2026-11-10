@@ -1,1 +1,191 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173d30">
+  <meta name="description" content="رزق فاطمی؛ ختم جمعی ۵۳۰ صلوات به مناسبت ایام فاطمیه">
+  <title>رزق فاطمی | ختم جمعی صلوات</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #f4eedc;
+      color: #173d30;
+      min-height: 100vh;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 35px 20px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      border: 1px solid rgba(195,166,106,.35);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .page::before {
+      top: -150px;
+      right: -120px;
+    }
+
+    .page::after {
+      bottom: -160px;
+      left: -120px;
+    }
+
+    .ornament {
+      color: #b69a60;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .brand {
+      font-size: clamp(38px, 8vw, 58px);
+      font-weight: bold;
+      letter-spacing: -2px;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      line-height: 2.2;
+      color: #627568;
+      margin-bottom: 32px;
+    }
+
+    .portrait {
+      width: 190px;
+      height: 225px;
+      border: 1px solid #c3a66a;
+      border-radius: 100px 100px 18px 18px;
+      background: #e9e1cb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      color: #6d806f;
+      font-size: 13px;
+      line-height: 2;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .quote {
+      max-width: 570px;
+      font-size: clamp(19px, 4vw, 25px);
+      line-height: 2.2;
+      font-weight: bold;
+      color: #173d30;
+      opacity: 0;
+      animation: reveal 2s ease forwards;
+      animation-delay: .5s;
+      margin-bottom: 30px;
+    }
+
+    .quote-mark {
+      color: #b69a60;
+      font-size: 34px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .enter {
+      display: inline-block;
+      text-decoration: none;
+      background: #173d30;
+      color: #f4eedc;
+      padding: 16px 35px;
+      border-radius: 9px;
+      font-size: 15px;
+      transition: .3s;
+      box-shadow: 0 8px 22px rgba(23,61,48,.15);
+    }
+
+    .enter:hover {
+      background: #315b48;
+      transform: translateY(-3px);
+    }
+
+    .footer {
+      margin-top: 42px;
+      font-size: 11px;
+      color: #8b927f;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portrait {
+        width: 165px;
+        height: 195px;
+      }
+      .page {
+        padding: 25px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <div class="ornament">✦ ❋ ✦</div>
+
+    <h1 class="brand">رزق فاطمی</h1>
+
+    <p class="subtitle">
+      ختم جمعی ۵۳۰ صلوات<br>
+      به مناسبت ایام فاطمیه
+    </p>
+
+    <div class="portrait">
+      تصویر یادبود<br>
+      در این قسمت قرار می‌گیرد
+    </div>
+
+    <div class="quote">
+      <span class="quote-mark">❝</span>
+      من رزق سال کشور را در شب‌های فاطمیه می‌گیرم.
+    </div>
+
+    <a class="enter" href="salavat.html">
+      ورود به قرار صلوات
+    </a>
+
+    <div class="footer">
+      به نیت ارادت و محبت به حضرت فاطمه زهرا (س)
+    </div>
+
+  </main>
+</body>
+</html>
