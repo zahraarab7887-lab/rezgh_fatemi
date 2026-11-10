@@ -3,19 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#102b22">
-<title>رزق فاطمی | قرار صلوات</title>
+<meta name="theme-color" content="#10291f">
+<title>رزق فاطمی</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
-
 :root {
-  --dark: #102b22;
-  --deep: #0a1e18;
-  --green: #234b39;
-  --gold: #c9ab72;
-  --cream: #f3ead6;
-  --soft: #c8c1ac;
+  --green: #10291f;
+  --green-light: #1d4231;
+  --cream: #f2ead8;
+  --gold: #c5a875;
+  --muted: #c3c0ad;
 }
 
 * {
@@ -25,271 +26,233 @@
 }
 
 body {
-  background: var(--deep);
+  background: var(--green);
   color: var(--cream);
-  font-family: 'Vazirmatn', Tahoma, sans-serif;
+  font-family: 'Vazirmatn', sans-serif;
 }
 
 .page {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
+  padding: 38px 6%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 55px 7%;
+  align-items: center;
   background:
-    radial-gradient(ellipse at 78% 45%, rgba(66,108,77,.25), transparent 48%),
-    radial-gradient(ellipse at 10% 10%, rgba(194,161,95,.08), transparent 40%),
-    linear-gradient(135deg, #0a1e18, #173b2d 55%, #0c241c);
+    radial-gradient(ellipse at 25% 50%, rgba(72,110,75,.18), transparent 55%),
+    linear-gradient(135deg, #0c2119, #173a2a 55%, #10291f);
 }
 
-.frame {
+/* زمینه ظریف و بدون نقش‌های شلوغ */
+.page:before {
+  content: "";
   position: absolute;
-  inset: 18px;
-  border: 1px solid rgba(201,171,114,.38);
+  inset: 17px;
+  border: 1px solid rgba(197,168,117,.25);
   pointer-events: none;
 }
 
-.frame:before,
-.frame:after {
-  content: "✦";
+.page:after {
+  content: "";
   position: absolute;
-  color: var(--gold);
-  font-size: 17px;
-  background: var(--dark);
-  padding: 5px 12px;
-}
-
-.frame:before {
-  top: -15px;
-  right: 45px;
-}
-
-.frame:after {
-  bottom: -15px;
-  left: 45px;
-}
-
-.decoration {
-  position: absolute;
-  color: rgba(201,171,114,.07);
-  font-size: 300px;
-  left: -60px;
-  bottom: -100px;
-  transform: rotate(-20deg);
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(197,168,117,.07);
+  border-radius: 50%;
+  top: -310px;
+  left: -150px;
   pointer-events: none;
 }
 
 .container {
   width: 100%;
-  max-width: 1120px;
+  max-width: 1160px;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
-.header {
+.bismillah {
   text-align: center;
-  margin-bottom: 45px;
-  animation: appear 1.3s ease both;
-}
-
-.header-small {
+  font-family: 'Amiri', serif;
+  font-size: clamp(28px, 4vw, 40px);
   color: var(--gold);
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin-bottom: 13px;
+  font-weight: 400;
+  margin-bottom: 55px;
+  animation: fade 1.5s ease both;
 }
 
-.header-line {
+.bismillah-line {
   width: 100px;
   height: 1px;
-  background: var(--gold);
-  margin: 0 auto;
-  opacity: .65;
+  background: rgba(197,168,117,.6);
+  margin: 18px auto 0;
 }
 
-.main {
+.content {
   display: grid;
-  grid-template-columns: 1fr .85fr;
+  grid-template-columns: 1fr .9fr;
+  gap: 85px;
   align-items: center;
-  gap: 75px;
 }
 
-.text-area {
-  text-align: center;
-  animation: rise 1.2s .2s both;
-}
-
-.star {
-  color: var(--gold);
-  font-size: 28px;
-  margin-bottom: 5px;
-}
-
-.title {
-  color: var(--cream);
-  font-size: clamp(48px, 7vw, 76px);
-  font-weight: 800;
-  letter-spacing: -3px;
-  line-height: 1.5;
-}
-
-.title-rule {
-  width: 115px;
-  height: 1px;
-  background: var(--gold);
-  margin: 12px auto 18px;
-  position: relative;
-}
-
-.title-rule:after {
-  content: "✧";
-  position: absolute;
-  top: -11px;
-  right: 50%;
-  transform: translateX(50%);
-  color: var(--gold);
-  background: #173b2d;
-  padding: 0 9px;
-}
-
-.subtitle {
-  color: var(--soft);
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 2.4;
-  margin-bottom: 38px;
-}
-
-.quote-area {
-  margin: 0 auto 36px;
-  max-width: 530px;
-  padding: 22px 10px;
-  position: relative;
-}
-
-.quote-symbol {
-  color: var(--gold);
-  font-size: 35px;
-  line-height: 1;
-}
-
-.quote {
-  font-family: 'Noto Naskh Arabic', 'Vazirmatn', serif;
-  font-size: clamp(25px, 3.4vw, 37px);
-  line-height: 2.05;
-  font-weight: 600;
-  color: var(--cream);
-  animation: quote 2s ease both;
-  animation-delay: .7s;
-}
-
-.author {
-  color: var(--gold);
-  font-size: 13px;
-  margin-top: 13px;
-  letter-spacing: 1px;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px 30px;
-  border: 1px solid var(--gold);
-  color: var(--cream);
-  background: rgba(201,171,114,.08);
-  text-decoration: none;
-  font-size: 14px;
-  transition: all .35s ease;
-}
-
-.button:hover {
-  color: var(--deep);
-  background: var(--gold);
-  box-shadow: 0 0 35px rgba(201,171,114,.2);
-  transform: translateY(-4px);
-}
-
-.button .arrow {
-  font-size: 20px;
-}
-
-.image-area {
+/* تصویر */
+.portrait-area {
   display: flex;
   justify-content: center;
-  animation: rise 1.4s ease both;
+  animation: rise 1.3s ease both;
 }
 
-.image-frame {
-  width: min(100%, 390px);
-  height: 535px;
-  padding: 9px;
-  border: 1px solid var(--gold);
+.portrait-frame {
+  width: 100%;
+  max-width: 420px;
+  height: 555px;
   position: relative;
+  padding: 9px;
+  border: 1px solid rgba(197,168,117,.75);
   background: rgba(255,255,255,.025);
-  box-shadow: 0 25px 70px rgba(0,0,0,.25);
 }
-  .image-frame:before {
+
+.portrait-frame:before {
   content: "";
   position: absolute;
   inset: 5px;
-  border: 1px solid rgba(201,171,114,.3);
+  border: 1px solid rgba(197,168,117,.25);
   pointer-events: none;
   z-index: 2;
 }
 
-.image-frame img {
-  display: block;
+.portrait-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 62% center;
+  display: block;
+  filter: saturate(.78) contrast(1.04);
 }
 
-.image-caption {
-  position: absolute;
-  z-index: 3;
-  bottom: -16px;
-  right: 50%;
-  transform: translateX(50%);
-  background: var(--dark);
-  border: 1px solid var(--gold);
-  padding: 7px 25px;
-  color: var(--gold);
-  white-space: nowrap;
-  font-size: 12px;
-}
-
-.footer {
-  margin-top: 55px;
+/* نوشته‌ها */
+.text-area {
   text-align: center;
-  color: rgba(243,234,214,.45);
-  font-size: 11px;
+  animation: rise 1.3s .2s ease both;
 }
 
-@keyframes appear {
-  from {opacity: 0;}
-  to {opacity: 1;}
+.brand {
+  font-size: clamp(54px, 7vw, 82px);
+  font-weight: 700;
+  letter-spacing: -4px;
+  line-height: 1.5;
+  color: var(--cream);
+}
+
+.brand-rule {
+  width: 135px;
+  height: 1px;
+  background: var(--gold);
+  margin: 16px auto 23px;
+  opacity: .8;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 2.5;
+  font-weight: 300;
+  margin-bottom: 48px;
+}
+
+.quote-section {
+  padding: 28px 0 30px;
+  border-top: 1px solid rgba(197,168,117,.3);
+  border-bottom: 1px solid rgba(197,168,117,.3);
+  margin-bottom: 38px;
+}
+
+.quote {
+  font-family: 'Amiri', serif;
+  font-size: clamp(30px, 4vw, 43px);
+  font-weight: 700;
+  line-height: 2;
+  color: var(--cream);
+  opacity: 0;
+  animation: quoteReveal 2s 1s ease forwards;
+}
+
+.author {
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 15px;
+}
+
+.enter {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 225px;
+  padding: 16px 30px;
+  border: 1px solid var(--gold);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  transition: .4s ease;
+  background: transparent;
+}
+
+.enter:hover {
+  background: var(--gold);
+  color: var(--green);
+  box-shadow: 0 8px 35px rgba(197,168,117,.15);
+  transform: translateY(-3px);
+}
+  .footer {
+  text-align: center;
+  margin-top: 60px;
+  color: rgba(242,234,216,.5);
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes rise {
-  from {opacity: 0; transform: translateY(25px);}
-  to {opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes quote {
-  from {opacity: 0; transform: translateY(14px);}
-  to {opacity: 1; transform: translateY(0);}
+@keyframes quoteReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
 @media(max-width: 760px) {
   .page {
-    padding: 45px 28px;
+    padding: 38px 27px;
   }
 
-  .main {
+  .bismillah {
+    margin-bottom: 40px;
+  }
+
+  .content {
     grid-template-columns: 1fr;
     gap: 42px;
   }
@@ -298,25 +261,25 @@ body {
     order: 1;
   }
 
-  .image-area {
+  .portrait-area {
     order: 2;
   }
 
-  .image-frame {
-    max-width: 300px;
-    height: 420px;
-  }
-
-  .header {
-    margin-bottom: 35px;
-  }
-
-  .title {
-    font-size: 55px;
+  .brand {
+    font-size: 61px;
   }
 
   .subtitle {
-    margin-bottom: 28px;
+    margin-bottom: 32px;
+  }
+
+  .quote {
+    font-size: 34px;
+  }
+
+  .portrait-frame {
+    max-width: 330px;
+    height: 440px;
   }
 
   .footer {
@@ -325,16 +288,16 @@ body {
 }
 
 @media(max-width: 380px) {
-  .page {
-    padding: 35px 20px;
+  .brand {
+    font-size: 52px;
   }
 
-  .title {
-    font-size: 47px;
+  .quote {
+    font-size: 29px;
   }
 
-  .image-frame {
-    height: 370px;
+  .portrait-frame {
+    height: 390px;
   }
 }
 </style>
@@ -343,72 +306,55 @@ body {
 <body>
 
 <main class="page">
-
-  <div class="frame"></div>
-  <div class="decoration">✧</div>
-
   <div class="container">
 
-    <header class="header">
-      <div class="header-small">
-      «بسم الله الرحمن الرحیم»
-      </div>
-      <div class="header-line"></div>
+    <header class="bismillah">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+      <div class="bismillah-line"></div>
     </header>
 
-    <section class="main">
+    <section class="content">
 
       <div class="text-area">
 
-        <div class="star">۞</div>
+        <h1 class="brand">رزق فاطمی</h1>
 
-        <h1 class="title">رزق فاطمی</h1>
-
-        <div class="title-rule"></div>
+        <div class="brand-rule"></div>
 
         <p class="subtitle">
-          ختم جمعی ۵۳۰ صلوات<br>
+          ختم جمعی ۵۳۰ صلوات
+          <br>
           به مناسبت ایام فاطمیه
         </p>
 
-        <div class="quote-area">
-          <div class="quote-symbol">❝</div>
-
+        <div class="quote-section">
           <p class="quote">
-            من رزق یک سال کشور را<br>
+            من رزق یک سال کشور را
+            <br>
             در شب‌های فاطمیه می‌گیرم.
           </p>
 
-          <div class="author">رهبر شهید</div>
+          <div class="author">
+            رهبر شهید
+          </div>
         </div>
 
-        <a class="button" href="salavat.html">
-          <span>✧</span>
+        <a class="enter" href="salavat.html">
           ورود به قرار صلوات
-          <span class="arrow">←</span>
         </a>
 
       </div>
 
-      <div class="image-area">
-        <div class="image-frame">
-
-          <img
-            src="rahbar.jpg"
-            alt="تصویر رهبر شهید"
-          >
-
-          <div class="image-caption">
-            
-          </div>
-
+      <div class="portrait-area">
+        <div class="portrait-frame">
+          <img src="rahbar.jpg" alt="تصویر رهبر شهید">
         </div>
       </div>
 
     </section>
 
     <footer class="footer">
-      هر صلوات، سهمی از یک قرار عاشقانه
+      به یاد شب‌های فاطمیه
     </footer>
 
   </div>
